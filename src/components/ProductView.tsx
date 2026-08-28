@@ -3,12 +3,11 @@ import { searchProducts } from '../domain/catalog';
 import { salesChannels } from '../mock-data';
 import type {
   ChannelId,
-  ChannelState,
   MockAction,
   Product,
   ProductOption,
 } from '../types';
-import { ChannelCard } from './ChannelCard';
+import { ChannelCard, type ChannelDisplayState } from './ChannelCard';
 
 export type OptionSelection = string | 'ALL';
 
@@ -32,10 +31,14 @@ const sabangnetChannelIds = salesChannels
   .map((channel) => channel.id);
 const allChannelIds = salesChannels.map((channel) => channel.id);
 
-function aggregateState(options: ProductOption[], channelId: ChannelId): ChannelState {
+function aggregateState(
+  options: ProductOption[],
+  channelId: ChannelId,
+): ChannelDisplayState {
   const states = options.map((option) => option.channelStates[channelId]);
   if (states.some((state) => state === 'PENDING')) return 'PENDING';
   if (states.every((state) => state === 'SOLD_OUT')) return 'SOLD_OUT';
+  if (states.some((state) => state === 'SOLD_OUT')) return 'MIXED';
   return 'ON_SALE';
 }
 

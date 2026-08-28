@@ -785,6 +785,11 @@ code {
   background: #f3eddc;
 }
 
+.state-badge--mixed {
+  color: #47545a;
+  background: #e3ecef;
+}
+
 .channel-card__actions {
   margin-top: 13px;
 }

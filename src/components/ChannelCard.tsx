@@ -1,15 +1,18 @@
 import type { ChannelState, MockAction, SalesChannel } from '../types';
 
+export type ChannelDisplayState = ChannelState | 'MIXED';
+
 interface ChannelCardProps {
   channel: SalesChannel;
-  state: ChannelState;
+  state: ChannelDisplayState;
   onRequestAction: (action: MockAction) => void;
 }
 
-const stateLabels: Record<ChannelState, string> = {
+const stateLabels: Record<ChannelDisplayState, string> = {
   ON_SALE: '판매중',
   SOLD_OUT: '품절',
   PENDING: '확인 필요',
+  MIXED: '혼합 상태',
 };
 
 export function ChannelCard({

@@ -29,6 +29,21 @@ describe('상품 관리 화면', () => {
     ).toBeInTheDocument();
   });
 
+  it('상품 전체에서 옵션별 상태가 다르면 혼합 상태로 표시한다', async () => {
+    const user = userEvent.setup();
+    render(<App />);
+
+    await user.click(screen.getByRole('button', { name: '상품 관리' }));
+    await user.click(screen.getByRole('button', { name: /상품 전체/ }));
+
+    const naverCard = screen
+      .getByRole('heading', { name: '네이버 스마트스토어' })
+      .closest('article');
+
+    expect(naverCard).not.toBeNull();
+    expect(within(naverCard!).getByText('혼합 상태')).toBeInTheDocument();
+  });
+
   it('전체 품절은 확인창을 거쳐야 실행된다', async () => {
     const user = userEvent.setup();
     render(<App />);
