@@ -4,6 +4,20 @@ import { describe, expect, it } from 'vitest';
 import App from './App';
 
 describe('상품 관리 화면', () => {
+  it('대시보드에 간결한 제목만 표시하고 긴 히어로 문구는 제거한다', () => {
+    render(<App />);
+
+    expect(
+      screen.getByRole('heading', { name: 'Dashboard' }),
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByText('품절은 한 곳에서, 확인은 채널별로.'),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByText(/상품과 옵션을 선택한 뒤 모든 판매처/),
+    ).not.toBeInTheDocument();
+  });
+
   it('상단에 영문 서비스명을 표시하고 기존 아이콘은 사용하지 않는다', () => {
     render(<App />);
 
