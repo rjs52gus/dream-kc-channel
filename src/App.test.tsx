@@ -4,6 +4,16 @@ import { describe, expect, it } from 'vitest';
 import App from './App';
 
 describe('상품 관리 화면', () => {
+  it('상단에 영문 서비스명을 표시하고 기존 아이콘은 사용하지 않는다', () => {
+    render(<App />);
+
+    const header = screen.getByRole('banner');
+    expect(
+      within(header).getByText('Dream Kitchen Channel'),
+    ).toBeInTheDocument();
+    expect(within(header).queryByText('꿈')).not.toBeInTheDocument();
+  });
+
   it('상품명으로 검색하고 개별 옵션을 선택한다', async () => {
     const user = userEvent.setup();
     render(<App />);

@@ -27,7 +27,7 @@ export function DashboardView({
     <section className="view dashboard-view" aria-labelledby="dashboard-title">
       <div className="hero-row">
         <div>
-          <p className="eyebrow">오늘의 판매상태 운영</p>
+          <p className="eyebrow">Dream Kitchen Channel</p>
           <h1 id="dashboard-title">품절은 한 곳에서, 확인은 채널별로.</h1>
           <p className="hero-copy">
             상품과 옵션을 선택한 뒤 모든 판매처의 Mock 품절·판매재개 흐름을

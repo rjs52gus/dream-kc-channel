@@ -129,8 +129,7 @@ export default function App() {
     <div className="app-shell">
       <header className="topbar">
         <div className="brand">
-          <span className="brand__mark" aria-hidden="true">꿈</span>
-          <span><b>꿈꾸는 키친</b><small>통합 판매채널 관리</small></span>
+          <span><b>Dream Kitchen Channel</b><small>통합 판매채널 관리</small></span>
         </div>
         <div className="topbar__status">
           <span className="status-dot" aria-hidden="true" />
