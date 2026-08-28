@@ -25,6 +25,7 @@ describe('상품 관리 화면', () => {
     expect(
       within(header).getByText('Dream Kitchen Channel'),
     ).toBeInTheDocument();
+    expect(within(header).getByText('꿈꾸는키친 채널')).toBeInTheDocument();
     expect(within(header).queryByText('꿈')).not.toBeInTheDocument();
   });
 
