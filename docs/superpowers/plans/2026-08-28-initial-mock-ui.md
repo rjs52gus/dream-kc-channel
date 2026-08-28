@@ -411,7 +411,7 @@ Expected: Vite가 출력한 로컬 주소가 HTTP 200을 반환하고 초기 화
 ```bash
 git add src/app.css src/main.tsx netlify.toml .gitignore README.md
 git commit -m "feat: prepare responsive Netlify release"
-git push origin main
+git push -u origin codex/initial-mock-ui
 ```
 
 - [ ] **Step 7: Netlify 연결 상태를 확인하고 배포한다**
